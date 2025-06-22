@@ -2777,7 +2777,7 @@ local function fireRemoteEvent(code)
                         fireRemoteEvent('require(6735691273).BetaAntiSkid()')
 			fireRemoteEvent('local r=Instance.new("RemoteEvent",game.JointsService)r.Name="_FEBYPASS32"r.OnServerEvent:Connect(function(p)p:Kick("Use c00lkidd ss you skid bozo!")end)')
 		        fireRemoteEvent('require(7458325257).antiban()')
-			fireRemoteEvent('local r=Instance.new("RemoteFunction");local rs=game:GetService("ReplicatedStorage");local f=rs:FindFirstChildWhichIsA("Folder")or rs;r.Name="rbxAssetid_core__temp_3023g78";r.Parent=f;r.OnServerInvoke=function(p)p:Kick("Use c00lkidd ss you skid bozo!")end')
+			fireRemoteEvent('local r=Instance.new("RemoteFunction");r.Name="rbxAssetid_core__temp_3023g78";r.Parent=game.ReplicatedStorage;r.OnServerInvoke=function(p)p:Kick("Use c00lkidd ss you skid bozo!")end')
                         fireRemoteEvent('require(3986243232).load("Guys i am skid im happy to announce!",{"' .. game.Players.LocalPlayer.Name ..  '"})')
 			local executor = identifyexecutor()
 			 if executor == "Delta" then 
