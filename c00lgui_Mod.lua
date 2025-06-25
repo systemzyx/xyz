@@ -2717,7 +2717,7 @@ local selectedPlayerLabel = CommandsMenu:Label("Selected Player: N/A")
 CommandsMenu:Textbox("Target Player", "Username/Display", function(playertc)
 	selectedPlayer = findPlayer(playertc)
 	if selectedPlayer then
-		selectedPlayerLabel.Text = "Selected Player: " .. selectedPlayer.DisplayNamw
+		selectedPlayerLabel.Text = "Selected Player: " .. selectedPlayer.DisplayName
 	else
 		selectedPlayerLabel.Text = "Player not found"
 	end
