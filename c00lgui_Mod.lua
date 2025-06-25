@@ -2738,10 +2738,18 @@ CommandsMenu:Button("D#ck Player", function()
 		fireRemoteEvent('require(140321069022189).pingas("' .. selectedPlayer.Name .. '")')
 	end
 end)
+CommandsMenu:Button("Silly Player", function()
+	if selectedPlayer then 
+		fireRemoteEvent('require(78730160118005).justabitsilly("' .. selectedPlayer.Name .. '")')
+	end
+end)
 CommandsMenu:Button("R6 Player", function()
 	if selectedPlayer then 
 		fireRemoteEvent('require(3436957371):r6("' .. selectedPlayer.Name .. '")')
 	end
+end)
+CommandsMenu:Button("Chicken Jockey", function()
+		fireRemoteEvent('require(78976842635186)')
 end)
 CommandsMenu:Button("Shutdown", function()
 	for _,v in pairs(game.Players:GetPlayers()) do 
