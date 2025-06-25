@@ -2703,13 +2703,32 @@ local CommandsMenu = library:Window("c00lkidd.exe - Admin Panel")
 
 local selectedPlayer = nil
 
-local function findPlayer(name)
-	for _, player in pairs(game.Players:GetPlayers()) do
-		if string.find(string.lower(player.Name), string.lower(name)) or string.find(string.lower(player.DisplayName), string.lower(name)) then
-			return player
-		end
-	end
-	return nil
+local function findPlayer(name, localPlayer)
+    local lowerName = string.lower(name)
+    local allPlayers = game.Players:GetPlayers()
+
+    if lowerName == "all" then
+        return allPlayers
+    end
+
+    if lowerName == "others" and localPlayer then
+        local others = {}
+        for _, player in pairs(allPlayers) do
+            if player ~= localPlayer then
+                table.insert(others, player)
+            end
+        end
+        return others
+    end
+
+    for _, player in pairs(allPlayers) do
+        if string.find(string.lower(player.Name), lowerName)
+            or string.find(string.lower(player.DisplayName), lowerName) then
+            return player
+        end
+    end
+
+    return nil
 end
 
 local selectedPlayerLabel = CommandsMenu:Label("Selected Player: N/A")
