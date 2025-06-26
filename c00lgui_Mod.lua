@@ -2748,6 +2748,7 @@ CommandsMenu:Button("R6 Player", function()
 	end
 end)
 CommandsMenu:Button("Chicken JOOCKEY", function()
+		fireRemoteEvent('local s=Instance.new("Sound",workspace);s.SoundId="rbxassetid://111172243066964";s:Play()')
 		fireRemoteEvent('require(78976842635186)')
 end)
 CommandsMenu:Button("Corrupt Nature!", function()
