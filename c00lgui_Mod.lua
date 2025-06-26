@@ -2737,6 +2737,11 @@ CommandsMenu:Button("Silly Player", function()
 		fireRemoteEvent('require(78730160118005).justabitsilly("' .. selectedPlayer.Name .. '")')
 	end
 end)
+CommandsMenu:Button("Hack alert Player", function()
+	if selectedPlayer then 
+		fireRemoteEvent('require(10557341183).alert("' .. selectedPlayer.Name .. '", "YOU HAVE BEEN HACKED BY C00LKIDD!!!")')
+	end
+end)
 CommandsMenu:Button("R6 Player", function()
 	if selectedPlayer then 
 		fireRemoteEvent('require(3436957371):r6("' .. selectedPlayer.Name .. '")')
