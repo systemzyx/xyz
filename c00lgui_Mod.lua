@@ -1760,13 +1760,7 @@ local function highlight(code)
 	end)
 
 	-- Strings (single and double quoted)
-	-- Match double-quoted strings with escaped quotes
         code = code:gsub('"(.-[^\\])?"', function(s)
-	       return protect('<font color="#ce9178">'..s..'</font>')
-        end)
-
-       -- Match single-quoted strings with escaped quotes
-        code = code:gsub("'(.-[^\\])?'", function(s)
 	       return protect('<font color="#ce9178">'..s..'</font>')
         end)
 
