@@ -1705,7 +1705,9 @@ local function highlight(code)
 	code = code:gsub("%[%[.-%]%]", function(s)
 		return protect('<font color="#ce9178">' .. s .. '</font>')
 	end)
-
+        code = code:gsub("(%-%-.-)\n", function(c) return protect('<font color="#6a9955">'..c..'</font>').."\n" end)
+	code = code:gsub("(%-%-.*)$", function(c) return protect('<font color="#6a9955">'..c..'</font>') end)
+	
 	-- Strings (single and double quoted)
         code = code:gsub('"(.-[^\\])?"', function(s)
 	       return protect('<font color="#ce9178">'..s..'</font>')
