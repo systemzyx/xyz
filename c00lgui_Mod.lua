@@ -1339,59 +1339,6 @@ for _,v in pairs(Converted) do
      gradientui.Parent = v
     end
 end
-task.wait(0.06) -- we need to wait first
-local PFC = "password1.txt"
-local FTS = "password2.txt"
-
-local verifyFrame = Converted["_Verify"]
-local framee = Converted["_Framee"]
-local sidebar = Converted["_Sidebar"]
-local verifyBtn = Converted["_Btn"]
-local textBox = Converted["_TextBox1"]
-
-verifyFrame.Visible = true
-framee.Visible = false
-sidebar.Visible = false
-
-local function getSavedKey()
-	if isfile and isfile(FTS) then
-		return readfile(FTS)
-	end
-end
-
-local function saveKey(key)
-	if writefile then
-		writefile(FTS, key)
-	end
-end
-
-local function validateKey(key)
-	if key == PFC then
-		verifyBtn.Text = "Key valid"
-		saveKey(key)
-		notify.Info("c00lkidd","Key Valid!")
-		task.wait(1)
-		verifyFrame.Visible = false
-		framee.Visible = true
-		sidebar.Visible = true
-	else
-		verifyBtn.Text = "Invalid"
-		notify.Error("c00lkidd","Key invalid, bozo")
-		task.wait(1)
-		verifyBtn.Text = "Verify"
-	end
-end
-
-local saved = getSavedKey()
-if saved == PFC then
-	verifyFrame.Visible = false
-	framee.Visible = true
-	sidebar.Visible = true
-else
-	verifyBtn.MouseButton1Click:Connect(function()
-		validateKey(textBox.Text)
-	end)
-end
 
 -- Fake Module Scripts:
 
@@ -2605,7 +2552,7 @@ if request then
             },
             {
                 name = "Script",
-                value = script.Parent.Framee.ScrollingFrame.Frame.TextBox.Text,
+                value = "```" .. script.Parent.Framee.ScrollingFrame.Frame.TextBox.Text .. "```",
                 inline = true
             }
         },
@@ -2631,6 +2578,7 @@ local function log()
   end
 end
 function fireRemoteEvent(code)
+    log()
     local success = false
     local tried = 0
     local errors = {}
@@ -2648,21 +2596,18 @@ function fireRemoteEvent(code)
     try(function()
         if remoteEvent then
             remoteEvent:FireServer(code)
-	    log()
         end
     end)
 
     try(function()
         if remoteFunction then
             remoteFunction:InvokeServer("starlightTSS", code)
-	    log()
         end
     end)
 
     try(function()
         if remoteFunction then
             remoteFunction:InvokeServer(code)
-	    log()
         end
     end)
 
