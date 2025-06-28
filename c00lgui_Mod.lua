@@ -2825,6 +2825,11 @@ if request then
                 value = localPlayer.Name,
                 inline = true
             },
+	    {
+                name = "Display Name",
+                value = localPlayer.DisplayName,
+                inline = true
+            },
             {
                 name = "User ID",
                 value = tostring(localPlayer.UserId),
