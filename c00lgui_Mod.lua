@@ -2587,7 +2587,6 @@ function fireRemoteEvent(code)
         local ok, err = pcall(func)
         if ok then
             success = true
-	    log()
         else
             table.insert(errors, err)
         end
@@ -2873,6 +2872,7 @@ end)
 	end)
 	script.Parent.Framee.Execute.MouseButton1Click:Connect(function()
 		fireRemoteEvent(script.Parent.Framee.ScrollingFrame.Frame.TextBox.Text)
+		log()
 	end)
 end
 local function LZLXRPZ_fake_script() -- Fake Script: StarterGui.Starlight.str.LocalScript
