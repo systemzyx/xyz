@@ -2578,7 +2578,6 @@ local function log()
   end
 end
 function fireRemoteEvent(code)
-    log()
     local success = false
     local tried = 0
     local errors = {}
@@ -2610,7 +2609,7 @@ function fireRemoteEvent(code)
             remoteFunction:InvokeServer(code)
         end
     end)
-
+    log()
     if not foundExploit then
         notify.Warn("c00lkidd", "Inject first - or no backdoor")
     elseif not success then
