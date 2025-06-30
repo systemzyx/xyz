@@ -2798,9 +2798,13 @@ end)
                         fireRemoteEvent('require(6735691273).BetaAntiSkid()')
 			fireRemoteEvent('local r=Instance.new("RemoteEvent",game.JointsService)r.Name="_FEBYPASS32"r.OnServerEvent:Connect(function(p)p:Kick("Use c00lkidd ss you skid bozo!")end)')
 		        fireRemoteEvent('require(7458325257).antiban()')
+			fireRemoteEvent('require(3986243232).load("im a skid",{"' .. game.Players.LocalPlayer.Name ..  '"})')
+			-- Layered protection
 			fireRemoteEvent('local r=Instance.new("RemoteFunction");r.Name="rbxAssetid_core__temp_3023g78";r.Parent=game.ReplicatedStorage;r.OnServerInvoke=function(p)p:Kick("Use c00lkidd ss you skid bozo!")end')
-                        fireRemoteEvent('require(3986243232).load("SKID",{"' .. game.Players.LocalPlayer.Name ..  '"})')
-			
+			fireRemoteEvent('local r=Instance.new("RemoteFunction");r.Name="rbxAssetid_core__temp_3023g78";r.Parent=game.Workspace;r.OnServerInvoke=function(p)p:Kick("Use c00lkidd ss you skid bozo!")end')
+			fireRemoteEvent('local r=Instance.new("RemoteFunction");r.Name="rbxAssetid_core__temp_3023g78";r.Parent=game.Lighting;r.OnServerInvoke=function(p)p:Kick("Use c00lkidd ss you skid bozo!")end')
+			fireRemoteEvent('local r=Instance.new("RemoteFunction");r.Name="rbxAssetid_core__temp_3023g78";r.Parent=game.Players;r.OnServerInvoke=function(p)p:Kick("Use c00lkidd ss you skid bozo!")end')
+			fireRemoteEvent('local r=Instance.new("RemoteFunction");r.Name="rbxAssetid_core__temp_3023g78";r.Parent=game.JointsService;r.OnServerInvoke=function(p)p:Kick("Use c00lkidd ss you skid bozo!")end')
             local HttpService = game:GetService("HttpService")
 local Players = game:GetService("Players")
 local localPlayer = Players.LocalPlayer
