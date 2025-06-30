@@ -2788,7 +2788,9 @@ end)
 		if remoteEvent or remoteFunction then
 			script.Parent.Framee.Check.Visible = false
 			script.Parent.Framee.Log.Visible = true
-			script.Parent.Framee.Log.Text = "[" .. ((remoteEvent and remoteEvent.Name) or (remoteFunction and remoteFunction.Name) or "Unknown") .. "]"
+			while wait(10) do 
+			     script.Parent.Framee.Log.Text = "[" .. ((remoteEvent and remoteEvent.Name) or (remoteFunction and remoteFunction.Name) or "Unknown") .. "]"
+		        end
 			script.Parent.stat.ImageColor3 = Color3.fromRGB(159, 226, 191)
 			notify.Info("Backdoor Found!","Scan time : " .. scanTime)
                         -----------
