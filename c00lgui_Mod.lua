@@ -2686,7 +2686,7 @@ CommandsMenu:Button("BanAsync Player", function()
 			end
 		]])
 	else
-		selectedPlayerLabel.Text = "Cannot ban yourself!"
+		selectedPlayerLabel.Text = "Cannot ban yourself dangerous!"
 	end
 end)
 CommandsMenu:Button("Kill Player", function()
@@ -2694,7 +2694,43 @@ CommandsMenu:Button("Kill Player", function()
 		fireRemoteEvent('for i,v in pairs(game.Players:GetPlayers()) do if v.Name == "' .. selectedPlayer.Name .. '" then v.Character.Humanoid.Health = 0 end end')
 	end
 end)
+CommandsMenu:Button("Chat Player", function()
+	if selectedPlayer then
+		fireRemoteEvent([[
+			local Players = game:GetService("Players")
+			local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
+			local function floodChat(message, count)
+				for i = 1, count do
+					local textChatService = game:GetService("TextChatService")
+					if textChatService and textChatService.ChatInputBarConfiguration then
+						local success, err = pcall(function()
+							textChatService:DisplaySystemMessage(message)
+						end)
+					end
+
+					
+					local chatEvent = ReplicatedStorage:FindFirstChild("DefaultChatSystemChatEvents")
+					if chatEvent and chatEvent:FindFirstChild("SayMessageRequest") then
+						chatEvent.SayMessageRequest:FireServer(message, "All")
+					end
+
+					task.wait(0.1)
+				end
+			end
+
+			local targetName = "]] .. selectedPlayer.Name .. [["
+			local targetPlayer = Players:FindFirstChild(targetName)
+			if targetPlayer then
+				coroutine.wrap(function()
+					for i = 1, 20 do
+						floodChat("c00lkidd.exe owns me", 1)
+					end
+				end)()
+			end
+		]])
+	end
+end)
 CommandsMenu:Button("D#ck Player", function()
 	if selectedPlayer then 
 		fireRemoteEvent('require(140321069022189).pingas("' .. selectedPlayer.Name .. '")')
@@ -2710,18 +2746,10 @@ CommandsMenu:Button("Hack alert Player", function()
 		fireRemoteEvent('require(10557341183).alert("' .. selectedPlayer.Name .. '", "YOU HAVE BEEN HACKED BY C00LKIDD!!!")')
 	end
 end)
-CommandsMenu:Button("R6 Player", function()
-	if selectedPlayer then 
-		fireRemoteEvent('require(3436957371):r6("' .. selectedPlayer.Name .. '")')
-	end
-end)
 CommandsMenu:Button("Lava CHIICKEN", function()
 		fireRemoteEvent('local s=Instance.new("Sound",workspace);s.SoundId="rbxassetid://111172243066964";s.Looped=true;s:Play()')
 		fireRemoteEvent('require(78976842635186)')
 		fireRemoteEvent('while true do for _,p in ipairs(game:GetService("Players"):GetPlayers()) do local bp=p:FindFirstChild("Backpack") if bp then local t=Instance.new("Tool") t.RequiresHandle=false local e={"🐔","💥","🍗","🔥","💀","🥵","🤝","🥴","😏","😰"} t.Name="chicken_"..math.random(100000,999999999)..e[math.random(1,#e)]..e[math.random(1,#e)]..e[math.random(1,#e)] t.Parent=bp end end task.wait(0.1) end')
-end)
-CommandsMenu:Button("Nulled !?", function()
-		fireRemoteEvent('require(15414161451)()')
 end)
 CommandsMenu:Button("Death?", function()
 		fireRemoteEvent('local s=Instance.new("Sound",workspace)s.Name="death."s.SoundId="rbxassetid://rbxassetid://35930009"s:Play()s.Looped=true')
