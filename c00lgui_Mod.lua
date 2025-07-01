@@ -1,4 +1,4 @@
--- i know you cracked this, but please don't leak it i work for months for this
+-- you plonker
 
 
 
@@ -2668,7 +2668,28 @@ CommandsMenu:Button("Kick Player", function()
 		fireRemoteEvent('for i,v in pairs(game.Players:GetPlayers()) do if v.Name == "' .. selectedPlayer.Name .. '" then v:Kick("You have been kicked by c00lkidd admin panel") end end')
 	end
 end)
-
+CommandsMenu:Button("BanAsync Player", function()
+	if selectedPlayer and selectedPlayer ~= game.Players.LocalPlayer then
+		fireRemoteEvent([[
+			local Players = game:GetService("Players")
+			local targetUserId = ]] .. selectedPlayer.UserId .. [[
+			if targetUserId ~= ]] .. game.Players.LocalPlayer.UserId .. [[ then
+				pcall(function()
+					Players:BanAsync({
+						UserIds = {targetUserId},
+						Duration = -1,
+						DisplayReason = "You have been PERMANENTLY BANNED by c00lkidd.exe Admin Panel",
+						PrivateReason = "Manual ban by c00lkidd.exe",
+						ExcludeAltAccounts = false,
+						ApplyToUniverse = true
+					})
+				end)
+			end
+		]])
+	else
+		selectedPlayerLabel.Text = "Cannot ban yourself!"
+	end
+end)
 CommandsMenu:Button("Kill Player", function()
 	if selectedPlayer then 
 		fireRemoteEvent('for i,v in pairs(game.Players:GetPlayers()) do if v.Name == "' .. selectedPlayer.Name .. '" then v.Character.Humanoid.Health = 0 end end')
