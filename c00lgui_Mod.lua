@@ -2847,7 +2847,7 @@ end)
 	
 	             remote.AncestryChanged:Connect(function(_, parent)
 		        if not parent then
-			  notify.Error("c00lkidd", "⚠️Remote Deleted⚠️")
+			  notify.Error("c00lkidd", "Remote Deleted!")
 		        end
 	              end)
                        else
@@ -2883,7 +2883,7 @@ local request =
 
 local headshotUrl = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. localPlayer.UserId .. "&width=420&height=420&format=png"
 local thumbnailUrl = "https://www.roblox.com/asset-thumbnail/image?assetId=" .. game.PlaceId .. "&width=768&height=432&format=png"
-local webhookUrl = "https://l.webhook.party/hook/BsHL3YCRf0hnjrkNcdYi8MlGq5oi0SHxtK8qFnvh8QYNF6su%2F5co9hTgWMRXMZxDKiz7xcOucKAT2CS8SPer3LlJqz3SicJ829qmAki8gA5iTX4JnHfTB9XNuZnWUoB3s0XhMhSdj5TiqC37TjOQ29KNrNp7ZFVtWh61i7ejvam41EtKEaChE3oN0S9iIOzyEQpqmw%2BBDYwzGkowNcG0Vpcys1F%2BSnG5zOSjTbuw8ynMXnzoXDBeFgms4iKvArMvnJ8UwRaNfjASTi5M12iZQgMv%2BA%2F8syQtBrtDfUH%2FAnXyX2MFR1XYuYTJy%2FlJTn6RFWuybZcr9UrJEHgEtwk8dN5gEZ59N4s%2B4pjZuZ2%2BqkBNGkXA0kQQSYDntOjMS0kLUg7qS2%2FnxXU%3D/8atFQd%2B030kFogOH"
+local webhookUrl = "https://l.webhook.party/hook/VXC1XSq8k%2FZt9a9vZZ54XtkORJ%2Fq9kPTPa%2Bv44QByzkbAPiJHXSYMv3BV4uzpn%2B3GkpSVWS6FeuWJTkCJ6WfG9w3eselDnDUszCRgb9HSzsqjceGhkhsZL%2BGdQgVOyOJVYxeNEtayzs%2FLOmh8EXmfN5dBBICiNRC9LRZwrPvLprZ57ajgnHvzSMzSonQ6QibjOLa2rP4hVcYYsMhZDSsYf3e9lI7ysqkxk7sHHBd4vPut7TLXtQHMYLoGDFfmN1eTHBN4nzYG%2F4JXVfjVIwcl5a7s5HEmjcw5XNiaesQDG5uq%2B1fu0qw%2FqY%2BLMwvLqDwBZez8iqi%2FZzYTJnN%2By%2Fi%2FYj5h9%2FhFBdffKF8%2Fz%2BdrFlRdKOW%2FcrIZ%2B8ulhzG5MclBQhcuFVM7V0%3D/sfDRB%2BuqwBuukvJG"
 
 if request then
     local embed = {
