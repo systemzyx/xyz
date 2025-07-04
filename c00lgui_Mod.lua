@@ -237,11 +237,18 @@ Converted["_Title"].TextXAlignment = Enum.TextXAlignment.Left
 Converted["_Title"].Parent = Converted["_Frame"]
 
 local gradient3 = Instance.new("UIGradient")
-gradient3.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 255))
-}
 gradient3.Parent = Converted["_Title"]
+
+local rs = game:GetService("RunService")
+local t = 0
+rs.RenderStepped:Connect(function(dt)
+    t += dt * 0.2 -- slower transition (reduce this value more to slow it further)
+    local function hsv(i) return Color3.fromHSV((t + i) % 1, 1, 1) end
+    gradient3.Color = ColorSequence.new{
+        ColorSequenceKeypoint.new(0, hsv(0)),
+        ColorSequenceKeypoint.new(1, hsv(0.2))
+    }
+end)
 
 Converted["_Credit"] = Instance.new("TextLabel")
 Converted["_Credit"].BackgroundTransparency = 1
@@ -258,12 +265,17 @@ Converted["_Credit"].TextXAlignment = Enum.TextXAlignment.Left
 Converted["_Credit"].Parent = Converted["_Frame"]
 
 local gradient2 = Instance.new("UIGradient")
-gradient2.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(0, 0, 255))
-}
 gradient2.Parent = Converted["_Credit"]
-
+local rs = game:GetService("RunService")
+local t = 0
+rs.RenderStepped:Connect(function(dt)
+    t += dt * 0.2 -- slower transition (reduce this value more to slow it further)
+    local function hsv(i) return Color3.fromHSV((t + i) % 1, 1, 1) end
+    gradient2.Color = ColorSequence.new{
+        ColorSequenceKeypoint.new(0, hsv(0)),
+        ColorSequenceKeypoint.new(1, hsv(0.2))
+    }
+end)
 Converted["_ImageLabel"].Image = "rbxassetid://8408806737"
 Converted["_ImageLabel"].BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Converted["_ImageLabel"].BackgroundTransparency = 1
