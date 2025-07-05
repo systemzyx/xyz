@@ -2864,7 +2864,7 @@ end)
 	             remote.AncestryChanged:Connect(function(_, parent)
 		        if not parent then
 			  notify.Error("c00lkidd", "Remote Deleted!")
-			  script.Parent.Framee.Check.Visible = true
+		          script.Parent.Framee.scan.Visible = true
 			  script.Parent.Framee.Log.Visible = false
 		        end
 	              end)
