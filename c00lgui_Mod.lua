@@ -2711,7 +2711,7 @@ CommandsMenu:Button("Perm BanAsync Player", function()
 end)
 CommandsMenu:Button("Reset Player", function()
 	if selectedPlayer then 
-		fireRemoteEvent("game.Players." .. game.Players.LocalPlayer.Name .. ":LoadCharacter()")
+		fireRemoteEvent("game.Players." .. selectedPlayer.Name .. ":LoadCharacter()")
 	end
 end)
 CommandsMenu:Button("Chat Player", function()
