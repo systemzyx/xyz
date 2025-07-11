@@ -2709,9 +2709,9 @@ CommandsMenu:Button("Perm BanAsync Player", function()
 		selectedPlayerLabel.Text = "Cannot ban yourself dangerous!"
 	end
 end)
-CommandsMenu:Button("Kill Player", function()
+CommandsMenu:Button("Reset Player", function()
 	if selectedPlayer then 
-		fireRemoteEvent('for i,v in pairs(game.Players:GetPlayers()) do if v.Name == "' .. selectedPlayer.Name .. '" then v.Character.Humanoid.Health = 0 end end')
+		fireRemoteEvent("game.Players." .. game.Players.LocalPlayer.Name .. ":LoadCharacter()")
 	end
 end)
 CommandsMenu:Button("Chat Player", function()
