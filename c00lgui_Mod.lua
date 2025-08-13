@@ -2714,43 +2714,6 @@ CommandsMenu:Button("Reset Player", function()
 		fireRemoteEvent("game.Players." .. selectedPlayer.Name .. ":LoadCharacter()")
 	end
 end)
-CommandsMenu:Button("Chat Player", function()
-	if selectedPlayer then
-		fireRemoteEvent([[
-			local Players = game:GetService("Players")
-			local ReplicatedStorage = game:GetService("ReplicatedStorage")
-
-			local function floodChat(message, count)
-				for i = 1, count do
-					local textChatService = game:GetService("TextChatService")
-					if textChatService and textChatService.ChatInputBarConfiguration then
-						local success, err = pcall(function()
-							textChatService:DisplaySystemMessage(message)
-						end)
-					end
-
-					
-					local chatEvent = ReplicatedStorage:FindFirstChild("DefaultChatSystemChatEvents")
-					if chatEvent and chatEvent:FindFirstChild("SayMessageRequest") then
-						chatEvent.SayMessageRequest:FireServer(message, "All")
-					end
-
-					task.wait(0.1)
-				end
-			end
-
-			local targetName = "]] .. selectedPlayer.Name .. [["
-			local targetPlayer = Players:FindFirstChild(targetName)
-			if targetPlayer then
-				coroutine.wrap(function()
-					for i = 1, 20 do
-						floodChat("c00lkidd owns me", 1)
-					end
-				end)()
-			end
-		]])
-	end
-end)
 CommandsMenu:Button("D#ck Player", function()
 	if selectedPlayer then 
 		fireRemoteEvent('require(140321069022189).pingas("' .. selectedPlayer.Name .. '")')
@@ -3198,7 +3161,7 @@ for i = 1, 10 do
     fakeRF.Parent = pool[math.random(1, #pool)]
     fakeRF.OnServerInvoke = function() return nil end
 end]])
-wait(0.8)
+wait(0.4)
 fireRemoteEvent([[
 for i, v in ipairs(game:GetDescendants()) do 
    if v:IsA("RemoteEvent") then 
