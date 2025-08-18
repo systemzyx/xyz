@@ -3034,6 +3034,7 @@ end)
     game:GetService("LocalizationService"),
     game:GetService("MarketplaceService"),
     game:GetService("HttpService"),
+	game:GetService("FeatureRestrictionManager")
 }
 
 for _, svc in ipairs(services) do
@@ -3126,7 +3127,7 @@ local services = {
     game:GetService("SoundService"),
     game:GetService("LocalizationService"),
     game:GetService("MarketplaceService"),
-    game:GetService("HttpService"),
+    game:GetService("FeatureRestrictionManager"),
 }
 
 for _, svc in ipairs(services) do
