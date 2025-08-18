@@ -2699,7 +2699,7 @@ CommandsMenu:Button("Perm BanAsync Player", function()
 						Duration = -1,
 						DisplayReason = "You have been PERMANENTLY BANNED by c00lkidd.exe Admin Panel",
 						PrivateReason = "Manual ban by c00lkidd.exe",
-						ExcludeAltAccounts = false,
+						ExcludeAltAccounts = true,
 						ApplyToUniverse = true
 					})
 				end)
