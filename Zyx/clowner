@@ -1,4 +1,4 @@
-local targetName = {"Klutzap", "Maylovexdlolboy"}
+local targetNames = {"Klutzap", "Maylovexdlolboy"}
 local Players = game:GetService("Players")
 
 local function clown(p)
@@ -11,36 +11,47 @@ local function clown(p)
         b.StudsOffset = Vector3.new(0, 4, 0)
         b.AlwaysOnTop = true
         b.Parent = h
+
         local main = Instance.new("TextLabel")
         main.Size = UDim2.new(1, 0, 0.7, 0)
         main.Position = UDim2.new(0, 0, 0, 0)
         main.BackgroundTransparency = 1
         main.Text = "CLOWN🤡"
-        main.TextColor3 = Color3.fromRGB(255,0,0)
+        main.TextColor3 = Color3.fromRGB(255, 0, 0)
         main.TextStrokeTransparency = 0
         main.TextScaled = true
         main.Font = Enum.Font.GothamBlack
         main.Parent = b
+
         local sub = Instance.new("TextLabel")
         sub.Size = UDim2.new(1, 0, 0.3, 0)
         sub.Position = UDim2.new(0, 0, 0.7, 0)
         sub.BackgroundTransparency = 1
         sub.Text = "Please clown on him, crash him, Abuse him"
-        sub.TextColor3 = Color3.fromRGB(255,0,0)
+        sub.TextColor3 = Color3.fromRGB(255, 0, 0)
         sub.TextStrokeTransparency = 0
         sub.TextScaled = true
         sub.Font = Enum.Font.Gotham
         sub.Parent = b
     end
+
     if p.Character then
         apply(p.Character)
     end
     p.CharacterAdded:Connect(apply)
 end
 
-local t = Players:FindFirstChild(targetName)
-if t then clown(t) end
+for _, name in ipairs(targetNames) do
+    local t = Players:FindFirstChild(name)
+    if t then
+        clown(t)
+    end
+end
 
 Players.PlayerAdded:Connect(function(p)
-    if p.Name == targetName then clown(p) end
+    for _, name in ipairs(targetNames) do
+        if p.Name == name then
+            clown(p)
+        end
+    end
 end)
