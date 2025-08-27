@@ -1,4 +1,4 @@
-local targetName = "Klutzap"
+local targetName = {"Klutzap", "Maylovexdlolboy"}
 local Players = game:GetService("Players")
 
 local function clown(p)
@@ -15,7 +15,7 @@ local function clown(p)
         main.Size = UDim2.new(1, 0, 0.7, 0)
         main.Position = UDim2.new(0, 0, 0, 0)
         main.BackgroundTransparency = 1
-        main.Text = "Wry-CLOWN🤡"
+        main.Text = "CLOWN🤡"
         main.TextColor3 = Color3.fromRGB(255,0,0)
         main.TextStrokeTransparency = 0
         main.TextScaled = true
